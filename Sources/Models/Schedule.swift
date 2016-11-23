@@ -2,8 +2,8 @@
 //  Schedule.swift
 //  SwiftFHIR
 //
-//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2015-12-11.
-//  2015, SMART Health IT.
+//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Schedule) on 2016-09-16.
+//  2016, SMART Health IT.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ import Foundation
  *  A container for slot(s) of time that may be available for booking appointments.
  */
 public class Schedule: DomainResource {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "Schedule" }
 	}
 	
@@ -44,55 +44,55 @@ public class Schedule: DomainResource {
 		self.actor = actor
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["actor"] {
+			if let exist = js["actor"] {
 				presentKeys.insert("actor")
 				if let val = exist as? FHIRJSON {
 					self.actor = Reference(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "actor", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "actor", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "actor"))
 			}
-			if let exist: AnyObject = js["comment"] {
+			if let exist = js["comment"] {
 				presentKeys.insert("comment")
 				if let val = exist as? String {
 					self.comment = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "comment", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "comment", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["identifier"] {
+			if let exist = js["identifier"] {
 				presentKeys.insert("identifier")
 				if let val = exist as? [FHIRJSON] {
-					self.identifier = Identifier.from(val, owner: self) as? [Identifier]
+					self.identifier = Identifier.instantiate(fromArray: val, owner: self) as? [Identifier]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "identifier", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "identifier", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["planningHorizon"] {
+			if let exist = js["planningHorizon"] {
 				presentKeys.insert("planningHorizon")
 				if let val = exist as? FHIRJSON {
 					self.planningHorizon = Period(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "planningHorizon", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "planningHorizon", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["type"] {
+			if let exist = js["type"] {
 				presentKeys.insert("type")
 				if let val = exist as? [FHIRJSON] {
-					self.type = CodeableConcept.from(val, owner: self) as? [CodeableConcept]
+					self.type = CodeableConcept.instantiate(fromArray: val, owner: self) as? [CodeableConcept]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "type", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "type", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
 		}
@@ -109,13 +109,13 @@ public class Schedule: DomainResource {
 			json["comment"] = comment.asJSON()
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = Identifier.asJSONArray(identifier)
+			json["identifier"] = identifier.map() { $0.asJSON() }
 		}
 		if let planningHorizon = self.planningHorizon {
 			json["planningHorizon"] = planningHorizon.asJSON()
 		}
 		if let type = self.type {
-			json["type"] = CodeableConcept.asJSONArray(type)
+			json["type"] = type.map() { $0.asJSON() }
 		}
 		
 		return json

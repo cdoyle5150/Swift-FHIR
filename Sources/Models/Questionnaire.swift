@@ -2,8 +2,8 @@
 //  Questionnaire.swift
 //  SwiftFHIR
 //
-//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2015-12-11.
-//  2015, SMART Health IT.
+//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2016-09-16.
+//  2016, SMART Health IT.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ import Foundation
  *  into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
 public class Questionnaire: DomainResource {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "Questionnaire" }
 	}
 	
@@ -57,85 +57,85 @@ public class Questionnaire: DomainResource {
 		self.status = status
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["date"] {
+			if let exist = js["date"] {
 				presentKeys.insert("date")
 				if let val = exist as? String {
 					self.date = DateTime(string: val)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "date", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "date", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["group"] {
+			if let exist = js["group"] {
 				presentKeys.insert("group")
 				if let val = exist as? FHIRJSON {
 					self.group = QuestionnaireGroup(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "group", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "group", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "group"))
 			}
-			if let exist: AnyObject = js["identifier"] {
+			if let exist = js["identifier"] {
 				presentKeys.insert("identifier")
 				if let val = exist as? [FHIRJSON] {
-					self.identifier = Identifier.from(val, owner: self) as? [Identifier]
+					self.identifier = Identifier.instantiate(fromArray: val, owner: self) as? [Identifier]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "identifier", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "identifier", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["publisher"] {
+			if let exist = js["publisher"] {
 				presentKeys.insert("publisher")
 				if let val = exist as? String {
 					self.publisher = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "publisher", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "publisher", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["status"] {
+			if let exist = js["status"] {
 				presentKeys.insert("status")
 				if let val = exist as? String {
 					self.status = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "status", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "status", wants: String.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "status"))
 			}
-			if let exist: AnyObject = js["subjectType"] {
+			if let exist = js["subjectType"] {
 				presentKeys.insert("subjectType")
 				if let val = exist as? [String] {
 					self.subjectType = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "subjectType", wants: Array<String>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "subjectType", wants: Array<String>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["telecom"] {
+			if let exist = js["telecom"] {
 				presentKeys.insert("telecom")
 				if let val = exist as? [FHIRJSON] {
-					self.telecom = ContactPoint.from(val, owner: self) as? [ContactPoint]
+					self.telecom = ContactPoint.instantiate(fromArray: val, owner: self) as? [ContactPoint]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "telecom", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "telecom", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["version"] {
+			if let exist = js["version"] {
 				presentKeys.insert("version")
 				if let val = exist as? String {
 					self.version = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "version", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "version", wants: String.self, has: type(of: exist)))
 				}
 			}
 		}
@@ -152,7 +152,7 @@ public class Questionnaire: DomainResource {
 			json["group"] = group.asJSON()
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = Identifier.asJSONArray(identifier)
+			json["identifier"] = identifier.map() { $0.asJSON() }
 		}
 		if let publisher = self.publisher {
 			json["publisher"] = publisher.asJSON()
@@ -161,14 +161,14 @@ public class Questionnaire: DomainResource {
 			json["status"] = status.asJSON()
 		}
 		if let subjectType = self.subjectType {
-			var arr = [AnyObject]()
+			var arr = [Any]()
 			for val in subjectType {
 				arr.append(val.asJSON())
 			}
 			json["subjectType"] = arr
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = ContactPoint.asJSONArray(telecom)
+			json["telecom"] = telecom.map() { $0.asJSON() }
 		}
 		if let version = self.version {
 			json["version"] = version.asJSON()
@@ -185,7 +185,7 @@ public class Questionnaire: DomainResource {
  *  A collection of related questions (or further groupings of questions).
  */
 public class QuestionnaireGroup: BackboneElement {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "QuestionnaireGroup" }
 	}
 	
@@ -219,79 +219,79 @@ public class QuestionnaireGroup: BackboneElement {
 		super.init(json: json, owner: owner)
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["concept"] {
+			if let exist = js["concept"] {
 				presentKeys.insert("concept")
 				if let val = exist as? [FHIRJSON] {
-					self.concept = Coding.from(val, owner: self) as? [Coding]
+					self.concept = Coding.instantiate(fromArray: val, owner: self) as? [Coding]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "concept", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "concept", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["group"] {
+			if let exist = js["group"] {
 				presentKeys.insert("group")
 				if let val = exist as? [FHIRJSON] {
-					self.group = QuestionnaireGroup.from(val, owner: self) as? [QuestionnaireGroup]
+					self.group = QuestionnaireGroup.instantiate(fromArray: val, owner: self) as? [QuestionnaireGroup]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "group", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "group", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["linkId"] {
+			if let exist = js["linkId"] {
 				presentKeys.insert("linkId")
 				if let val = exist as? String {
 					self.linkId = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "linkId", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "linkId", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["question"] {
+			if let exist = js["question"] {
 				presentKeys.insert("question")
 				if let val = exist as? [FHIRJSON] {
-					self.question = QuestionnaireGroupQuestion.from(val, owner: self) as? [QuestionnaireGroupQuestion]
+					self.question = QuestionnaireGroupQuestion.instantiate(fromArray: val, owner: self) as? [QuestionnaireGroupQuestion]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "question", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "question", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["repeats"] {
+			if let exist = js["repeats"] {
 				presentKeys.insert("repeats")
 				if let val = exist as? Bool {
 					self.repeats = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "repeats", wants: Bool.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "repeats", wants: Bool.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["required"] {
+			if let exist = js["required"] {
 				presentKeys.insert("required")
 				if let val = exist as? Bool {
 					self.required = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "required", wants: Bool.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "required", wants: Bool.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["text"] {
+			if let exist = js["text"] {
 				presentKeys.insert("text")
 				if let val = exist as? String {
 					self.text = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "text", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "text", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["title"] {
+			if let exist = js["title"] {
 				presentKeys.insert("title")
 				if let val = exist as? String {
 					self.title = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "title", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "title", wants: String.self, has: type(of: exist)))
 				}
 			}
 		}
@@ -302,16 +302,16 @@ public class QuestionnaireGroup: BackboneElement {
 		var json = super.asJSON()
 		
 		if let concept = self.concept {
-			json["concept"] = Coding.asJSONArray(concept)
+			json["concept"] = concept.map() { $0.asJSON() }
 		}
 		if let group = self.group {
-			json["group"] = QuestionnaireGroup.asJSONArray(group)
+			json["group"] = group.map() { $0.asJSON() }
 		}
 		if let linkId = self.linkId {
 			json["linkId"] = linkId.asJSON()
 		}
 		if let question = self.question {
-			json["question"] = QuestionnaireGroupQuestion.asJSONArray(question)
+			json["question"] = question.map() { $0.asJSON() }
 		}
 		if let repeats = self.repeats {
 			json["repeats"] = repeats.asJSON()
@@ -337,7 +337,7 @@ public class QuestionnaireGroup: BackboneElement {
  *  Set of questions within this group. The order of questions within the group is relevant.
  */
 public class QuestionnaireGroupQuestion: BackboneElement {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "QuestionnaireGroupQuestion" }
 	}
 	
@@ -374,88 +374,88 @@ public class QuestionnaireGroupQuestion: BackboneElement {
 		super.init(json: json, owner: owner)
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["concept"] {
+			if let exist = js["concept"] {
 				presentKeys.insert("concept")
 				if let val = exist as? [FHIRJSON] {
-					self.concept = Coding.from(val, owner: self) as? [Coding]
+					self.concept = Coding.instantiate(fromArray: val, owner: self) as? [Coding]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "concept", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "concept", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["group"] {
+			if let exist = js["group"] {
 				presentKeys.insert("group")
 				if let val = exist as? [FHIRJSON] {
-					self.group = QuestionnaireGroup.from(val, owner: self) as? [QuestionnaireGroup]
+					self.group = QuestionnaireGroup.instantiate(fromArray: val, owner: self) as? [QuestionnaireGroup]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "group", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "group", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["linkId"] {
+			if let exist = js["linkId"] {
 				presentKeys.insert("linkId")
 				if let val = exist as? String {
 					self.linkId = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "linkId", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "linkId", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["option"] {
+			if let exist = js["option"] {
 				presentKeys.insert("option")
 				if let val = exist as? [FHIRJSON] {
-					self.option = Coding.from(val, owner: self) as? [Coding]
+					self.option = Coding.instantiate(fromArray: val, owner: self) as? [Coding]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "option", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "option", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["options"] {
+			if let exist = js["options"] {
 				presentKeys.insert("options")
 				if let val = exist as? FHIRJSON {
 					self.options = Reference(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "options", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "options", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["repeats"] {
+			if let exist = js["repeats"] {
 				presentKeys.insert("repeats")
 				if let val = exist as? Bool {
 					self.repeats = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "repeats", wants: Bool.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "repeats", wants: Bool.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["required"] {
+			if let exist = js["required"] {
 				presentKeys.insert("required")
 				if let val = exist as? Bool {
 					self.required = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "required", wants: Bool.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "required", wants: Bool.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["text"] {
+			if let exist = js["text"] {
 				presentKeys.insert("text")
 				if let val = exist as? String {
 					self.text = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "text", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "text", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["type"] {
+			if let exist = js["type"] {
 				presentKeys.insert("type")
 				if let val = exist as? String {
 					self.type = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "type", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "type", wants: String.self, has: type(of: exist)))
 				}
 			}
 		}
@@ -466,16 +466,16 @@ public class QuestionnaireGroupQuestion: BackboneElement {
 		var json = super.asJSON()
 		
 		if let concept = self.concept {
-			json["concept"] = Coding.asJSONArray(concept)
+			json["concept"] = concept.map() { $0.asJSON() }
 		}
 		if let group = self.group {
-			json["group"] = QuestionnaireGroup.asJSONArray(group)
+			json["group"] = group.map() { $0.asJSON() }
 		}
 		if let linkId = self.linkId {
 			json["linkId"] = linkId.asJSON()
 		}
 		if let option = self.option {
-			json["option"] = Coding.asJSONArray(option)
+			json["option"] = option.map() { $0.asJSON() }
 		}
 		if let options = self.options {
 			json["options"] = options.asJSON()

@@ -2,8 +2,8 @@
 //  Age.swift
 //  SwiftFHIR
 //
-//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Age) on 2015-12-11.
-//  2015, SMART Health IT.
+//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Age) on 2016-09-16.
+//  2016, SMART Health IT.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ import Foundation
  *  UCUM.  If value is present, it SHALL be positive.
  */
 public class Age: Quantity {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "Age" }
 	}
 	

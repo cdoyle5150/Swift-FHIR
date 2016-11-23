@@ -2,8 +2,8 @@
 //  BackboneElement.swift
 //  SwiftFHIR
 //
-//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2015-12-11.
-//  2015, SMART Health IT.
+//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/BackboneElement) on 2016-09-16.
+//  2016, SMART Health IT.
 //
 
 import Foundation
@@ -15,7 +15,7 @@ import Foundation
  *  Base definition for all elements that are defined inside a resource - but not those in a data type.
  */
 public class BackboneElement: Element {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "BackboneElement" }
 	}
 	
@@ -28,16 +28,16 @@ public class BackboneElement: Element {
 		super.init(json: json, owner: owner)
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["modifierExtension"] {
+			if let exist = js["modifierExtension"] {
 				presentKeys.insert("modifierExtension")
 				if let val = exist as? [FHIRJSON] {
-					self.modifierExtension = Extension.from(val, owner: self) as? [Extension]
+					self.modifierExtension = Extension.instantiate(fromArray: val, owner: self) as? [Extension]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "modifierExtension", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "modifierExtension", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
 		}
@@ -48,7 +48,7 @@ public class BackboneElement: Element {
 		var json = super.asJSON()
 		
 		if let modifierExtension = self.modifierExtension {
-			json["modifierExtension"] = Extension.asJSONArray(modifierExtension)
+			json["modifierExtension"] = modifierExtension.map() { $0.asJSON() }
 		}
 		
 		return json

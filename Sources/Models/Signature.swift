@@ -2,8 +2,8 @@
 //  Signature.swift
 //  SwiftFHIR
 //
-//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Signature) on 2015-12-11.
-//  2015, SMART Health IT.
+//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/Signature) on 2016-09-16.
+//  2016, SMART Health IT.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ import Foundation
  *  different utilities.
  */
 public class Signature: Element {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "Signature" }
 	}
 	
@@ -37,7 +37,7 @@ public class Signature: Element {
 	public var whoReference: Reference?
 	
 	/// Who signed the signature.
-	public var whoUri: NSURL?
+	public var whoUri: URL?
 	
 	
 	/** Initialize with a JSON object. */
@@ -46,7 +46,7 @@ public class Signature: Element {
 	}
 	
 	/** Convenience initializer, taking all required properties as arguments. */
-	public convenience init(blob: Base64Binary, contentType: String, type: [Coding], when: Instant, whoReference: Reference, whoUri: NSURL) {
+	public convenience init(blob: Base64Binary, contentType: String, type: [Coding], when: Instant, whoReference: Reference, whoUri: URL) {
 		self.init(json: nil)
 		self.blob = blob
 		self.contentType = contentType
@@ -56,73 +56,73 @@ public class Signature: Element {
 		self.whoUri = whoUri
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["blob"] {
+			if let exist = js["blob"] {
 				presentKeys.insert("blob")
 				if let val = exist as? String {
 					self.blob = Base64Binary(string: val)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "blob", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "blob", wants: String.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "blob"))
 			}
-			if let exist: AnyObject = js["contentType"] {
+			if let exist = js["contentType"] {
 				presentKeys.insert("contentType")
 				if let val = exist as? String {
 					self.contentType = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "contentType", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "contentType", wants: String.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "contentType"))
 			}
-			if let exist: AnyObject = js["type"] {
+			if let exist = js["type"] {
 				presentKeys.insert("type")
 				if let val = exist as? [FHIRJSON] {
-					self.type = Coding.from(val, owner: self) as? [Coding]
+					self.type = Coding.instantiate(fromArray: val, owner: self) as? [Coding]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "type", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "type", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "type"))
 			}
-			if let exist: AnyObject = js["when"] {
+			if let exist = js["when"] {
 				presentKeys.insert("when")
 				if let val = exist as? String {
 					self.when = Instant(string: val)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "when", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "when", wants: String.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "when"))
 			}
-			if let exist: AnyObject = js["whoReference"] {
+			if let exist = js["whoReference"] {
 				presentKeys.insert("whoReference")
 				if let val = exist as? FHIRJSON {
 					self.whoReference = Reference(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "whoReference", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "whoReference", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["whoUri"] {
+			if let exist = js["whoUri"] {
 				presentKeys.insert("whoUri")
 				if let val = exist as? String {
-					self.whoUri = NSURL(string: val)
+					self.whoUri = URL(string: val)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "whoUri", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "whoUri", wants: String.self, has: type(of: exist)))
 				}
 			}
 			
@@ -144,7 +144,7 @@ public class Signature: Element {
 			json["contentType"] = contentType.asJSON()
 		}
 		if let type = self.type {
-			json["type"] = Coding.asJSONArray(type)
+			json["type"] = type.map() { $0.asJSON() }
 		}
 		if let when = self.when {
 			json["when"] = when.asJSON()

@@ -294,8 +294,6 @@
 		EE02F7831ACF259B00179969 /* DiagnosticOrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F70C1ACF259B00179969 /* DiagnosticOrderTests.swift */; };
 		EE02F7841ACF259B00179969 /* DiagnosticReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F70D1ACF259B00179969 /* DiagnosticReportTests.swift */; };
 		EE02F7851ACF259B00179969 /* DiagnosticReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F70D1ACF259B00179969 /* DiagnosticReportTests.swift */; };
-		EE02F7861ACF259B00179969 /* DocumentManifestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F70E1ACF259B00179969 /* DocumentManifestTests.swift */; };
-		EE02F7871ACF259B00179969 /* DocumentManifestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F70E1ACF259B00179969 /* DocumentManifestTests.swift */; };
 		EE02F7881ACF259B00179969 /* DocumentReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F70F1ACF259B00179969 /* DocumentReferenceTests.swift */; };
 		EE02F7891ACF259B00179969 /* DocumentReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F70F1ACF259B00179969 /* DocumentReferenceTests.swift */; };
 		EE02F78A1ACF259B00179969 /* EligibilityRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F7101ACF259B00179969 /* EligibilityRequestTests.swift */; };
@@ -438,9 +436,12 @@
 		EE1F49D61C0D14F60095BF0F /* ReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1F49D41C0D14F60095BF0F /* ReferenceTests.swift */; };
 		EE1F49DF1C0D1BB40095BF0F /* TestResources in Resources */ = {isa = PBXBuildFile; fileRef = EE1F49DE1C0D1BB40095BF0F /* TestResources */; };
 		EE1F49E01C0D1BB40095BF0F /* TestResources in Resources */ = {isa = PBXBuildFile; fileRef = EE1F49DE1C0D1BB40095BF0F /* TestResources */; };
+		EE39069F1CD3E4F6008FECEA /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE39069E1CD3E4F6008FECEA /* RequestTests.swift */; };
+		EE3906A01CD3E4F6008FECEA /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE39069E1CD3E4F6008FECEA /* RequestTests.swift */; };
 		EE545F3B1A66805600E17B0C /* SwiftFHIR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE684C1E19A789BA00B5A2C0 /* SwiftFHIR.framework */; };
 		EE684CCF19A7CEF000B5A2C0 /* ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE684CCE19A7CEF000B5A2C0 /* ExtensionsTest.swift */; };
 		EE6DA8631A5D4B3A00E00708 /* SwiftFHIR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6DA8571A5D4B1000E00708 /* SwiftFHIR.framework */; };
+		EE8250411DD631610097A737 /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE01F9721C58FC51003AEA7E /* ResourceTests.swift */; };
 		EE8901231B7E07D700F1EDBF /* Element+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8901221B7E07D700F1EDBF /* Element+Extensions.swift */; };
 		EE8901241B7E07D700F1EDBF /* Element+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8901221B7E07D700F1EDBF /* Element+Extensions.swift */; };
 		EE9B31F41ACAD93400980AA9 /* Resource+REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B31F31ACAD93400980AA9 /* Resource+REST.swift */; };
@@ -654,7 +655,6 @@
 		EE02F70B1ACF259B00179969 /* DeviceUseStatementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUseStatementTests.swift; sourceTree = "<group>"; };
 		EE02F70C1ACF259B00179969 /* DiagnosticOrderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosticOrderTests.swift; sourceTree = "<group>"; };
 		EE02F70D1ACF259B00179969 /* DiagnosticReportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnosticReportTests.swift; sourceTree = "<group>"; };
-		EE02F70E1ACF259B00179969 /* DocumentManifestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentManifestTests.swift; sourceTree = "<group>"; };
 		EE02F70F1ACF259B00179969 /* DocumentReferenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentReferenceTests.swift; sourceTree = "<group>"; };
 		EE02F7101ACF259B00179969 /* EligibilityRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityRequestTests.swift; sourceTree = "<group>"; };
 		EE02F7111ACF259B00179969 /* EligibilityResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityResponseTests.swift; sourceTree = "<group>"; };
@@ -727,7 +727,8 @@
 		EE1F49CE1C0D06360095BF0F /* FHIROpenServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FHIROpenServer.swift; sourceTree = "<group>"; };
 		EE1F49D11C0D11060095BF0F /* FHIRBaseServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FHIRBaseServer.swift; sourceTree = "<group>"; };
 		EE1F49D41C0D14F60095BF0F /* ReferenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceTests.swift; sourceTree = "<group>"; };
-		EE1F49DE1C0D1BB40095BF0F /* TestResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestResources; sourceTree = "<group>"; };
+		EE1F49DE1C0D1BB40095BF0F /* TestResources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TestResources; path = ../TestResources; sourceTree = "<group>"; };
+		EE39069E1CD3E4F6008FECEA /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		EE684C1E19A789BA00B5A2C0 /* SwiftFHIR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftFHIR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE684C2219A789BA00B5A2C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE684C2919A789BA00B5A2C0 /* SwiftFHIRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFHIRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -808,7 +809,7 @@
 				EEF20E151A5D4FFE009A6EDA /* README.md */,
 				EE1310DC1C1B7E3700D9DAE7 /* Package.swift */,
 				EE684C2019A789BA00B5A2C0 /* SwiftFHIR */,
-				EE684C2A19A789BA00B5A2C0 /* SwiftFHIRTests */,
+				EE684C2A19A789BA00B5A2C0 /* Tests */,
 				EEEE31291BB2829A008866E2 /* Metadata */,
 				EE684C1F19A789BA00B5A2C0 /* Products */,
 			);
@@ -835,19 +836,15 @@
 			name = SwiftFHIR;
 			sourceTree = "<group>";
 		};
-		EE684C2A19A789BA00B5A2C0 /* SwiftFHIRTests */ = {
+		EE684C2A19A789BA00B5A2C0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				EE684C2C19A789BA00B5A2C0 /* Info.plist */,
-				EE684CCE19A7CEF000B5A2C0 /* ExtensionsTest.swift */,
-				EEE5DF361A5D862B002AFF53 /* FHIRSearchTests.swift */,
-				EE1F49D41C0D14F60095BF0F /* ReferenceTests.swift */,
-				EE01F9721C58FC51003AEA7E /* ResourceTests.swift */,
-				EE1F49DE1C0D1BB40095BF0F /* TestResources */,
+				EE8250401DD62E0B0097A737 /* ClientTests */,
 				EEEB096E19AD248700C324FC /* ModelTests */,
+				EE1F49DE1C0D1BB40095BF0F /* TestResources */,
 				EEEE31191BB278E3008866E2 /* AppKit.framework */,
 			);
-			name = SwiftFHIRTests;
 			path = Tests;
 			sourceTree = "<group>";
 		};
@@ -991,6 +988,18 @@
 			path = Sources/Models;
 			sourceTree = "<group>";
 		};
+		EE8250401DD62E0B0097A737 /* ClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE684CCE19A7CEF000B5A2C0 /* ExtensionsTest.swift */,
+				EEE5DF361A5D862B002AFF53 /* FHIRSearchTests.swift */,
+				EE1F49D41C0D14F60095BF0F /* ReferenceTests.swift */,
+				EE01F9721C58FC51003AEA7E /* ResourceTests.swift */,
+				EE39069E1CD3E4F6008FECEA /* RequestTests.swift */,
+			);
+			path = ClientTests;
+			sourceTree = "<group>";
+		};
 		EE9B31F61ACAD94800980AA9 /* Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -1013,7 +1022,6 @@
 		EEEB096E19AD248700C324FC /* ModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				EEEE311C1BB27E6D008866E2 /* XCTestCase+FHIR.swift */,
 				EEEE30F41BB1FDB7008866E2 /* AccountTests.swift */,
 				EE02F6F01ACF259B00179969 /* AllergyIntoleranceTests.swift */,
 				EE02F6F11ACF259B00179969 /* AppointmentResponseTests.swift */,
@@ -1045,7 +1053,6 @@
 				EE02F70B1ACF259B00179969 /* DeviceUseStatementTests.swift */,
 				EE02F70C1ACF259B00179969 /* DiagnosticOrderTests.swift */,
 				EE02F70D1ACF259B00179969 /* DiagnosticReportTests.swift */,
-				EE02F70E1ACF259B00179969 /* DocumentManifestTests.swift */,
 				EE02F70F1ACF259B00179969 /* DocumentReferenceTests.swift */,
 				EE02F7101ACF259B00179969 /* EligibilityRequestTests.swift */,
 				EE02F7111ACF259B00179969 /* EligibilityResponseTests.swift */,
@@ -1106,6 +1113,7 @@
 				EEEE30FC1BB1FDB7008866E2 /* TestScriptTests.swift */,
 				EE02F7481ACF259B00179969 /* ValueSetTests.swift */,
 				EE02F7491ACF259B00179969 /* VisionPrescriptionTests.swift */,
+				EEEE311C1BB27E6D008866E2 /* XCTestCase+FHIR.swift */,
 			);
 			path = ModelTests;
 			sourceTree = "<group>";
@@ -1223,17 +1231,23 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "SMART Health IT";
 				TargetAttributes = {
 					EE684C1D19A789BA00B5A2C0 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					EE684C2819A789BA00B5A2C0 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
+					};
+					EE6DA7CD1A5D4B1000E00708 = {
+						LastSwiftMigration = 0800;
 					};
 					EE6DA85C1A5D4B3A00E00708 = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -1464,6 +1478,7 @@
 				EE02F76C1ACF259B00179969 /* ConformanceTests.swift in Sources */,
 				EE02F75C1ACF259B00179969 /* ClaimResponseTests.swift in Sources */,
 				EEE5DF371A5D862B002AFF53 /* FHIRSearchTests.swift in Sources */,
+				EE39069F1CD3E4F6008FECEA /* RequestTests.swift in Sources */,
 				EE02F7561ACF259B00179969 /* BodySiteTests.swift in Sources */,
 				EE02F7F61ACF259B00179969 /* SubstanceTests.swift in Sources */,
 				EE02F7EE1ACF259B00179969 /* SlotTests.swift in Sources */,
@@ -1541,7 +1556,6 @@
 				EE02F7C01ACF259B00179969 /* ObservationTests.swift in Sources */,
 				EE02F7AE1ACF259B00179969 /* LocationTests.swift in Sources */,
 				EE02F7D21ACF259B00179969 /* PersonTests.swift in Sources */,
-				EE02F7861ACF259B00179969 /* DocumentManifestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1729,6 +1743,7 @@
 				EE02F7E91ACF259B00179969 /* RiskAssessmentTests.swift in Sources */,
 				EE02F7D51ACF259B00179969 /* PractitionerTests.swift in Sources */,
 				EE02F7EB1ACF259B00179969 /* ScheduleTests.swift in Sources */,
+				EE8250411DD631610097A737 /* ResourceTests.swift in Sources */,
 				EE02F7991ACF259B00179969 /* FamilyMemberHistoryTests.swift in Sources */,
 				EE02F7AB1ACF259B00179969 /* ImmunizationTests.swift in Sources */,
 				EE02F76F1ACF259B00179969 /* ContractTests.swift in Sources */,
@@ -1746,6 +1761,7 @@
 				EE02F77F1ACF259B00179969 /* DeviceUseRequestTests.swift in Sources */,
 				EE02F7951ACF259B00179969 /* EpisodeOfCareTests.swift in Sources */,
 				EEF20DAE1A5D4ECD009A6EDA /* ExtensionsTest.swift in Sources */,
+				EE3906A01CD3E4F6008FECEA /* RequestTests.swift in Sources */,
 				EE02F7591ACF259B00179969 /* BundleTests.swift in Sources */,
 				EE02F7731ACF259B00179969 /* CoverageTests.swift in Sources */,
 				EE1F49D61C0D14F60095BF0F /* ReferenceTests.swift in Sources */,
@@ -1794,7 +1810,6 @@
 				EE02F7C11ACF259B00179969 /* ObservationTests.swift in Sources */,
 				EE02F7AF1ACF259B00179969 /* LocationTests.swift in Sources */,
 				EE02F7D31ACF259B00179969 /* PersonTests.swift in Sources */,
-				EE02F7871ACF259B00179969 /* DocumentManifestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1838,6 +1853,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1884,6 +1900,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1917,6 +1934,7 @@
 				PRODUCT_NAME = SwiftFHIR;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1937,14 +1955,16 @@
 				PRODUCT_NAME = SwiftFHIR;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		EE684C3519A789BA00B5A2C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -1954,14 +1974,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		EE684C3619A789BA00B5A2C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -1971,6 +1992,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1992,6 +2015,7 @@
 				PRODUCT_NAME = SwiftFHIR;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2013,13 +2037,15 @@
 				PRODUCT_NAME = SwiftFHIR;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		EE6DA8671A5D4B3A00E00708 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2030,14 +2056,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		EE6DA8681A5D4B3A00E00708 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COPY_PHASE_STRIP = NO;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2047,6 +2074,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -2,8 +2,8 @@
 //  FHIRAbstractBase+Factory.swift
 //  SwiftFHIR
 //
-//  Generated from FHIR 1.0.2.7202 on 2015-12-11.
-//  2015, SMART Health IT.
+//  Generated from FHIR 1.0.2.7202 on 2016-09-16.
+//  2016, SMART Health IT.
 //
 
 
@@ -12,7 +12,7 @@
  */
 extension FHIRAbstractBase {
 	
-	public class func factory(className: String, json: FHIRJSON, owner: FHIRAbstractBase?) -> FHIRAbstractBase {
+	public class func factory(_ className: String, json: FHIRJSON, owner: FHIRAbstractBase?) -> FHIRAbstractBase {
 		switch className {
 			case "Account":
 				return Account(json: json, owner: owner)

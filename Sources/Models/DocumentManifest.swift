@@ -2,8 +2,8 @@
 //  DocumentManifest.swift
 //  SwiftFHIR
 //
-//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2015-12-11.
-//  2015, SMART Health IT.
+//  Generated from FHIR 1.0.2.7202 (http://hl7.org/fhir/StructureDefinition/DocumentManifest) on 2016-09-16.
+//  2016, SMART Health IT.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ import Foundation
  *  A manifest that defines a set of documents.
  */
 public class DocumentManifest: DomainResource {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "DocumentManifest" }
 	}
 	
@@ -42,7 +42,7 @@ public class DocumentManifest: DomainResource {
 	public var related: [DocumentManifestRelated]?
 	
 	/// The source system/application/software.
-	public var source: NSURL?
+	public var source: URL?
 	
 	/// current | superseded | entered-in-error.
 	public var status: String?
@@ -66,121 +66,121 @@ public class DocumentManifest: DomainResource {
 		self.status = status
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["author"] {
+			if let exist = js["author"] {
 				presentKeys.insert("author")
 				if let val = exist as? [FHIRJSON] {
-					self.author = Reference.from(val, owner: self) as? [Reference]
+					self.author = Reference.instantiate(fromArray: val, owner: self) as? [Reference]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "author", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "author", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["content"] {
+			if let exist = js["content"] {
 				presentKeys.insert("content")
 				if let val = exist as? [FHIRJSON] {
-					self.content = DocumentManifestContent.from(val, owner: self) as? [DocumentManifestContent]
+					self.content = DocumentManifestContent.instantiate(fromArray: val, owner: self) as? [DocumentManifestContent]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "content", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "content", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "content"))
 			}
-			if let exist: AnyObject = js["created"] {
+			if let exist = js["created"] {
 				presentKeys.insert("created")
 				if let val = exist as? String {
 					self.created = DateTime(string: val)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "created", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "created", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["description"] {
+			if let exist = js["description"] {
 				presentKeys.insert("description")
 				if let val = exist as? String {
 					self.description_fhir = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "description", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "description", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["identifier"] {
+			if let exist = js["identifier"] {
 				presentKeys.insert("identifier")
 				if let val = exist as? [FHIRJSON] {
-					self.identifier = Identifier.from(val, owner: self) as? [Identifier]
+					self.identifier = Identifier.instantiate(fromArray: val, owner: self) as? [Identifier]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "identifier", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "identifier", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["masterIdentifier"] {
+			if let exist = js["masterIdentifier"] {
 				presentKeys.insert("masterIdentifier")
 				if let val = exist as? FHIRJSON {
 					self.masterIdentifier = Identifier(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "masterIdentifier", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "masterIdentifier", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["recipient"] {
+			if let exist = js["recipient"] {
 				presentKeys.insert("recipient")
 				if let val = exist as? [FHIRJSON] {
-					self.recipient = Reference.from(val, owner: self) as? [Reference]
+					self.recipient = Reference.instantiate(fromArray: val, owner: self) as? [Reference]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "recipient", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "recipient", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["related"] {
+			if let exist = js["related"] {
 				presentKeys.insert("related")
 				if let val = exist as? [FHIRJSON] {
-					self.related = DocumentManifestRelated.from(val, owner: self) as? [DocumentManifestRelated]
+					self.related = DocumentManifestRelated.instantiate(fromArray: val, owner: self) as? [DocumentManifestRelated]
 				}
 				else {
-					errors.append(FHIRJSONError(key: "related", wants: Array<FHIRJSON>.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "related", wants: Array<FHIRJSON>.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["source"] {
+			if let exist = js["source"] {
 				presentKeys.insert("source")
 				if let val = exist as? String {
-					self.source = NSURL(string: val)
+					self.source = URL(string: val)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "source", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "source", wants: String.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["status"] {
+			if let exist = js["status"] {
 				presentKeys.insert("status")
 				if let val = exist as? String {
 					self.status = val
 				}
 				else {
-					errors.append(FHIRJSONError(key: "status", wants: String.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "status", wants: String.self, has: type(of: exist)))
 				}
 			}
 			else {
 				errors.append(FHIRJSONError(key: "status"))
 			}
-			if let exist: AnyObject = js["subject"] {
+			if let exist = js["subject"] {
 				presentKeys.insert("subject")
 				if let val = exist as? FHIRJSON {
 					self.subject = Reference(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "subject", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "subject", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["type"] {
+			if let exist = js["type"] {
 				presentKeys.insert("type")
 				if let val = exist as? FHIRJSON {
 					self.type = CodeableConcept(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "type", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "type", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
 		}
@@ -191,10 +191,10 @@ public class DocumentManifest: DomainResource {
 		var json = super.asJSON()
 		
 		if let author = self.author {
-			json["author"] = Reference.asJSONArray(author)
+			json["author"] = author.map() { $0.asJSON() }
 		}
 		if let content = self.content {
-			json["content"] = DocumentManifestContent.asJSONArray(content)
+			json["content"] = content.map() { $0.asJSON() }
 		}
 		if let created = self.created {
 			json["created"] = created.asJSON()
@@ -203,16 +203,16 @@ public class DocumentManifest: DomainResource {
 			json["description"] = description_fhir.asJSON()
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = Identifier.asJSONArray(identifier)
+			json["identifier"] = identifier.map() { $0.asJSON() }
 		}
 		if let masterIdentifier = self.masterIdentifier {
 			json["masterIdentifier"] = masterIdentifier.asJSON()
 		}
 		if let recipient = self.recipient {
-			json["recipient"] = Reference.asJSONArray(recipient)
+			json["recipient"] = recipient.map() { $0.asJSON() }
 		}
 		if let related = self.related {
-			json["related"] = DocumentManifestRelated.asJSONArray(related)
+			json["related"] = related.map() { $0.asJSON() }
 		}
 		if let source = self.source {
 			json["source"] = source.asJSON()
@@ -238,7 +238,7 @@ public class DocumentManifest: DomainResource {
  *  The list of Documents included in the manifest.
  */
 public class DocumentManifestContent: BackboneElement {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "DocumentManifestContent" }
 	}
 	
@@ -261,25 +261,25 @@ public class DocumentManifestContent: BackboneElement {
 		self.pReference = pReference
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["pAttachment"] {
+			if let exist = js["pAttachment"] {
 				presentKeys.insert("pAttachment")
 				if let val = exist as? FHIRJSON {
 					self.pAttachment = Attachment(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "pAttachment", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "pAttachment", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["pReference"] {
+			if let exist = js["pReference"] {
 				presentKeys.insert("pReference")
 				if let val = exist as? FHIRJSON {
 					self.pReference = Reference(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "pReference", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "pReference", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
 			
@@ -312,7 +312,7 @@ public class DocumentManifestContent: BackboneElement {
  *  Related identifiers or resources associated with the DocumentManifest.
  */
 public class DocumentManifestRelated: BackboneElement {
-	override public class var resourceName: String {
+	override public class var resourceType: String {
 		get { return "DocumentManifestRelated" }
 	}
 	
@@ -328,25 +328,25 @@ public class DocumentManifestRelated: BackboneElement {
 		super.init(json: json, owner: owner)
 	}
 	
-	public override func populateFromJSON(json: FHIRJSON?, inout presentKeys: Set<String>) -> [FHIRJSONError]? {
-		var errors = super.populateFromJSON(json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
+	public override func populate(from json: FHIRJSON?, presentKeys: inout Set<String>) -> [FHIRJSONError]? {
+		var errors = super.populate(from: json, presentKeys: &presentKeys) ?? [FHIRJSONError]()
 		if let js = json {
-			if let exist: AnyObject = js["identifier"] {
+			if let exist = js["identifier"] {
 				presentKeys.insert("identifier")
 				if let val = exist as? FHIRJSON {
 					self.identifier = Identifier(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "identifier", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "identifier", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
-			if let exist: AnyObject = js["ref"] {
+			if let exist = js["ref"] {
 				presentKeys.insert("ref")
 				if let val = exist as? FHIRJSON {
 					self.ref = Reference(json: val, owner: self)
 				}
 				else {
-					errors.append(FHIRJSONError(key: "ref", wants: FHIRJSON.self, has: exist.dynamicType))
+					errors.append(FHIRJSONError(key: "ref", wants: FHIRJSON.self, has: type(of: exist)))
 				}
 			}
 		}
